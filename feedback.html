@@ -1,0 +1,134 @@
+// <?php
+// error_reporting(0);
+// $insert = false;
+// // if(isset($_POST['fullname'])){
+//     $server = "localhost";
+//     $username = "id17267770_shivay";
+//     $password = "Shivay@2005s";
+//     $db = "id17267770_registration";
+
+//     $conn = mysqli_connect($server, $username, $password, $db);
+
+//     if(!$conn){
+//         die("connection to this database failed due to".
+//         mysqli_connect_error());
+//     }
+//     // echo "Success connecting to the db";
+//     $name = $_POST['name'];
+//     $email = $_POST['email'];
+//     $message = $_POST['message'];
+//     $sql = "INSERT INTO `feedback1` (`name`, `email`, `message`, `dt`) VALUES ('$name', '$email', '$message', current_timestamp());";
+//     //echo $sql;
+
+//     if($conn->query($sql) == true){
+//         $insert = true;
+//       // echo "Successfully inserted";
+//     }
+//     else{
+//         //echo "ERROR: $sql <br> $conn->error";
+//     }
+
+//     $conn->close();
+
+// // }
+// ?>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" referrerpolicy="no-referrer" />
+    <title>Feedback</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+<header>
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+            <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+                <span class="ml-3 text-xl">Vaccination Registration Area</span>
+            </a>
+            <nav class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items">
+                <a href="feedbackhindi.html">
+                    <button class="inline-flex items-center bg-white bg-white border-0 py-1 px-3 focus:outline-none hover:bg-gray-100 rounded text-base mt-4 md:mt-0">Language - हिंदी
+                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-0 h-4 ml-1" viewBox="0 0 24 24">
+                    </svg>
+                    </button>
+                </a>
+            </nav>
+            <img src="against1.png">
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+                <li><a href="list.html">Centers list</a></li>
+                <li>
+                    <a href="#">Registration <i class="fas fa-caret-down"></i></a>
+
+                    <div class="dropdown_menu">
+                        <ul>
+                            <li><a href="covaccineregis.html">CoVaccine</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li><a href="covidshieldregis.html">Covidshield</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="index.html">Home</a></li>
+                
+            </ul>
+        </nav>
+  </header>
+    
+
+
+    <form>
+        <div class="container px-5 py-24 mx-auto">
+            <div class="flex flex-col text-center w-full mb-12">
+                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Feedback Form</h1>
+                <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Please give feedback to my website so that I can improve upon it</p>
+            </div>
+            <div class="lg:w-1/2 md:w-2/3 mx-auto">
+                <div class="flex flex-wrap -m-2">
+                    <div class="p-2 w-1/2">
+                        <div class="relative">
+                            <label for="name" class="leading-7 text-sm text-gray-600">Name</label>
+                            <input type="text" id="name" placeholder="Enter your name" required name="name" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        </div>
+                    </div>
+                    <div class="p-2 w-1/2">
+                        <div class="relative">
+                            <label for="email" class="leading-7 text-sm text-gray-600">Email</label>
+                            <input type="email" id="email" placeholder="Enter your email address" required name="email" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                        </div>
+                    </div>
+                    <div class="p-2 w-full">
+                        <div class="relative">
+                            <label for="message" class="leading-7 text-sm text-gray-600">Feedback</label>
+                            <textarea id="message" placeholder="Enter the feedback here" required name="message" class="w-full bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:border-indigo-500 focus:bg-white focus:ring-2 focus:ring-indigo-200 h-32 text-base outline-none text-gray-700 py-1 px-3 resize-none leading-6 transition-colors duration-200 ease-in-out"></textarea>
+                        </div>
+                    </div>
+                    <div class="p-2 w-full">
+                        <button class="flex mx-auto text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Submit</button>
+                    </div>
+                    <div class="p-2 w-full pt-8 mt-8 border-t border-gray-200 text-center">
+                        <a class="text-indigo-500">shivay3115@gmail.com</a>
+                        
+                            
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+    
+   
+
+
+    <br><br><br>
+
+</body>
+</html>

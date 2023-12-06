@@ -1,0 +1,160 @@
+<?php
+error_reporting(0);
+$insert = false;
+// if(isset($_POST['fullname'])){
+    $server = "localhost";
+    $username = "id17267770_shivay";
+    $password = "Shivay@2005s";
+    $db = "id17267770_registration";
+
+    $conn = mysqli_connect($server, $username, $password, $db);
+
+    if(!$conn){
+        die("connection to this database failed due to".
+        mysqli_connect_error());
+    }
+    // echo "Success connecting to the db";
+    $aadhar = $_POST['aadhar'];
+    $fullname = $_POST['fullname'];
+    $contact = $_POST['contact'];
+    $email = $_POST['email'];
+    $pincode = $_POST['pincode'];
+    $state = $_POST['state'];
+    $district = $_POST['district'];
+    $sql = "INSERT INTO `id17267770_registration`.`registration` (`aadhar`, `fullname`, `contact`, `email`, `pincode`, `state`, `district`, `dt`) VALUES ('$aadhar', '$fullname', '$contact', '$email', '$pincode', '$state', '$district', current_timestamp());";
+    //echo $sql;
+
+    if($conn->query($sql) == true){
+        $insert = true;
+       // echo "Successfully inserted";
+    }
+    else{
+        //echo "ERROR: $sql <br> $conn->error";
+    }
+
+    $conn->close();
+
+// }
+?>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" referrerpolicy="no-referrer" />
+    <title>COVIDSHIELD REGISTRATION</title>
+    <link href="style.css" rel="stylesheet">
+</head>
+<body>
+<header>
+        <div class="heading">
+            <h1 class="justify-center">Covidshield Registration</h1>
+        </div>
+        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
+            <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
+                <span class="ml-3 text-xl">Vaccination Registration Area</span>
+            </a>
+            <nav class="md:mr-auto md:ml-4 md:py-1 md:pl-4 md:border-l md:border-gray-400	flex flex-wrap items">
+                <a href="covidshieldregishindi.html">
+                    <button class="inline-flex items-center bg-white bg-white border-0 py-1 px-3 focus:outline-none hover:bg-gray-100 rounded text-base mt-4 md:mt-0">Language - हिंदी
+                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-0 h-4 ml-1" viewBox="0 0 24 24">
+                    </svg>
+                    </button>
+                </a>
+            </nav>
+            <img src="against1.png">
+        </div>
+        <nav class="navbar">
+            <ul>
+                <li><a href="about.html">About Me</a></li>
+                <li><a href="feedback.html">Feedback</a></li>
+                <li><a href="list.html">Centers list</a></li>
+                <li>
+                    <a href="#">Registration <i class="fas fa-caret-down"></i></a>
+
+                    <div class="dropdown_menu">
+                        <ul>
+                            <li><a href="covaccineregis.html">CoVaccine</a>
+                            </li>
+                        </ul>
+                        <ul>
+                            <li><a href="covidshieldregis.html">Covidshield</a></li>
+                        </ul>
+                    </div>
+                </li>
+                <li><a href="index.html">Home</a></li>
+                
+            </ul>
+        </nav>
+  </header>
+  <br><br><br>
+  <section class="text-gray-600 body-font">
+    <div class="container px-5 py-0 mx-auto flex flex-wrap items-center">
+      <div class="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0">
+        <section class="text-gray-600 body-font">        
+          <div class="sm:w-1/2 mb-10 px-4">
+            <div class="rounded-lg h-64 overflow-hidden">
+              <img alt="content" class="object-cover object-center h-full w-full" src="https://source.unsplash.com/600x500/?corona,injection,vaccine,virus">
+            </div>
+          </div>
+        </section>
+        <h1 class="title-font font-medium text-3xl text-gray-900">VACCINE REGISTRATION AREA</h1>
+        <p class="leading-relaxed mt-4">Please visit the nearest vaccination center between the time slot of 8a.m to 12p.m.</p>
+      </div>
+      <div class="lg:w-2/6 md:w-1/2 bg-gray-100 rounded-lg p-8 flex flex-col md:ml-auto w-full mt-10 md:mt-0">
+        <form action="covidshieldregis.html" method="POST">
+          <h2 class="text-gray-900 text-lg font-medium title-font mb-5">Vaccination Registeration : </h2>
+            <div class="relative mb-4">
+              <label for="aadhar" class="leading-7 text-sm text-gray-600">Aadhar Number</label>
+              <input type="number" id="aadhar" name="aadhar" required placeholder="Enter your Aadhar card number" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+            </div>
+            <div class="relative mb-4">
+              <label for="full-name" class="leading-7 text-sm text-gray-600">Full Name</label>
+              <input type="text" id="full-name" name="fullname" required placeholder="Enter Your Full Name"  class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+            </div>
+            <div class="relative mb-4">
+                <label for="contact" class="leading-7 text-sm text-gray-600">Contact Number</label>
+                <input type="number" id="contact" name="contact" required placeholder="Enter your Phone Number"  class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+            </div>
+            <div class="relative mb-4">
+                <label for="cars">Dose :       </label>
+                <select name="dose" id="dose">
+                  <option value="1">Dose  1</option>
+                  <option value="2">Dose  2</option>
+                </select>
+            </div> 
+            <div class="relative mb-4">
+              <label for="email" class="leading-7 text-sm text-gray-600">Email(optional)</label>
+              <input type="email" id="email" name="email" placeholder="Enter your Email address" class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+            </div>
+            <div class="relative mb-4">
+                <label for="pincode" class="leading-7 text-sm text-gray-600">Pincode</label>
+                <input type="number" id="pincode" name="pincode" required placeholder="Enter your area pincode"  class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+            </div>
+            <div class="relative mb-4">
+                <label for="state" class="leading-7 text-sm text-gray-600">State</label>
+                <input type="text" id="state" name="state" required placeholder="Enter the state in which you live in"  class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+            </div>
+            <div class="relative mb-4">
+                <label for="district" class="leading-7 text-sm text-gray-600">District</label>
+                <input type="text" id="district" name="district" required placeholder="Enter the district in which you live in"  class="w-full bg-white rounded border border-gray-300 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-200 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+            </div>
+            <button class="text-white bg-indigo-500 border-0 py-2 px-8 focus:outline-none hover:bg-indigo-600 rounded text-lg">Register</button>
+        </form>
+        <?php
+        if($insert == true){
+            echo "Thanks for submitting";
+        }
+        ?>
+      </div>
+    </div>
+  </section>
+
+<br><br><br>
+  
+</body>
+</html>
